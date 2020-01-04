@@ -15,14 +15,17 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import project.com.yuvaaag.auth.Forgetpassword;
 import project.com.yuvaaag.auth.LoginActivity;
 import project.com.yuvaaag.auth.SignUpActivity;
+import project.com.yuvaaag.fragment.HomeFragment;
 import project.com.yuvaaag.utils.AppSettings;
 import project.com.yuvaaag.utils.Preferences;
 
-public class DrawerClass {
+public class DrawerClass implements View.OnClickListener{
     private DrawerLayout drawer;
     private ImageView menu_;
     private TextView textheader;
@@ -49,30 +52,12 @@ public class DrawerClass {
                 catLL = (LinearLayout) drawer.findViewById(R.id.catLL);
                 newsLL = (LinearLayout) drawer.findViewById(R.id.newsLL);
                 worldLL = (LinearLayout) drawer.findViewById(R.id.worldLL);
-//                dashboard.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View view) {
-//                        context.startActivity(new Intent(context, DashboardDetailsActivity.class));
-//                    }
-//                });
-//                changePass.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View view) {
-//                        context.startActivity(new Intent(context, ChangePasswordActivity.class));
-//                    }
-//                });
-//                report.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View view) {
-//                        context.startActivity(new Intent(context, DashboardDetailsActivity.class));
-//                    }
-//                });
-//                logout.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View view) {
-//
-//                    }
-//                });
+
+
+
+
+
+                worldLL.setOnClickListener(this);
             }
         });
     }
@@ -124,5 +109,15 @@ public class DrawerClass {
                         alert11.show();
             }
         });
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId())
+        {
+            case R.id.worldLL:
+                HomeFragment.newInstance(0, "Top News");
+                break;
+        }
     }
 }

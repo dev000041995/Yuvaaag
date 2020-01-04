@@ -8,7 +8,10 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
+import project.com.yuvaaag.fragment.CountryFragment;
 import project.com.yuvaaag.fragment.HomeFragment;
+import project.com.yuvaaag.fragment.PoliticsFragment;
+import project.com.yuvaaag.fragment.WorldFragment;
 
 public class TabsAdapter extends FragmentPagerAdapter {
     private static int NUM_ITEMS = 10;
@@ -30,25 +33,25 @@ public class TabsAdapter extends FragmentPagerAdapter {
 
         switch (position) {
             case 0:
-                return  HomeFragment.newInstance(0, "Home");
+                return  HomeFragment.newInstance(0, "Top News");
             case 1:
-                return HomeFragment.newInstance(1, "World");
+                return WorldFragment.newInstance(1, "World");
             case 2:
-                return HomeFragment.newInstance(2, "India");
+                return CountryFragment.newInstance(2, "India");
             case 3:
-                return HomeFragment.newInstance(3, "Politics");
+                return PoliticsFragment.newInstance(3, "Politics");
             case 4:
-                return HomeFragment.newInstance(4, "Business");
+                return PoliticsFragment.newInstance(4, "Business");
             case 5:
-                return HomeFragment.newInstance(5, "Economy");
+                return PoliticsFragment.newInstance(5, "Economy");
             case 6:
-                return HomeFragment.newInstance(6, "Travel");
+                return PoliticsFragment.newInstance(6, "Travel");
             case 7:
-                return HomeFragment.newInstance(7, "Technology");
+                return PoliticsFragment.newInstance(7, "Technology");
             case 8:
-                return HomeFragment.newInstance(8, "LifeStyle");
+                return PoliticsFragment.newInstance(8, "LifeStyle");
             case 9:
-                return HomeFragment.newInstance(9, "Sport");
+                return PoliticsFragment.newInstance(9, "Sport");
             default:
                 return null;
         }
@@ -59,7 +62,7 @@ public class TabsAdapter extends FragmentPagerAdapter {
     public CharSequence getPageTitle(int position) {
         if (position==0)
         {
-            mFragmentTitleList.add("Home");
+            mFragmentTitleList.add("Top News");
         }
       else  if (position==1)
         {

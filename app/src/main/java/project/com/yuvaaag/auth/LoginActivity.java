@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import project.com.yuvaaag.DashboardActivity;
 import project.com.yuvaaag.DrawerClass;
 import project.com.yuvaaag.MainActivity;
 import project.com.yuvaaag.R;
@@ -51,7 +52,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
     @Override
     public void onBackPressed(){
-        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+        startActivity(new Intent(getApplicationContext(), DashboardActivity.class));
     }
 
     @Override
