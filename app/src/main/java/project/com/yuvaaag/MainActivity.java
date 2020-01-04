@@ -31,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         category_spin.setAdapter(adapter1);
     }
-
     private void get_findViewById() {
         menu_drawer=(ImageView)findViewById(R.id.menu);
         category_spin=(Spinner)findViewById(R.id.category_spin);

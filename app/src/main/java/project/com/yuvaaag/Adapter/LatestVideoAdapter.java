@@ -1,6 +1,7 @@
 package project.com.yuvaaag.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import project.com.yuvaaag.R;
+import project.com.yuvaaag.newsinvideo.NewsInVideo;
 
 
 public class LatestVideoAdapter extends RecyclerView.Adapter<LatestVideoAdapter.MyViewHolder> {
@@ -57,6 +59,15 @@ public class LatestVideoAdapter extends RecyclerView.Adapter<LatestVideoAdapter.
     public void onBindViewHolder(final MyViewHolder holder, final int position) {
 
        holder.imageView.setImageResource(mResources[position]);
+
+
+       holder.imageView.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               Intent intent=new Intent(mContext, NewsInVideo.class);
+               mContext.startActivity(intent);
+           }
+       });
     }
 
 

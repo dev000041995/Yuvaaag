@@ -1,10 +1,12 @@
 package project.com.yuvaaag.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -20,9 +22,12 @@ import project.com.yuvaaag.Adapter.LatestNewsAdapter;
 import project.com.yuvaaag.Adapter.LatestVideoAdapter;
 import project.com.yuvaaag.Adapter.ViewPagerAdapter;
 import project.com.yuvaaag.R;
+import project.com.yuvaaag.newsinvideo.NewsInVideo;
 
 
 public class HomeFragment extends Fragment {
+
+    private RelativeLayout newsOneRel;
 
     public static HomeFragment newInstance(int page, String title) {
         HomeFragment fragmentFirst = new HomeFragment();
@@ -45,7 +50,6 @@ public class HomeFragment extends Fragment {
 
         View view = inflater.inflate(
                 R.layout.home_fragment, container, false);
-
 
         viewpagerStory=view.findViewById(R.id.viewpagerStory);
 
@@ -72,8 +76,8 @@ public class HomeFragment extends Fragment {
                     currentPage = 0;
 
                 }
-                    viewpagerStory.setCurrentItem(currentPage, true);
-                    currentPage++; }
+                viewpagerStory.setCurrentItem(currentPage, true);
+                currentPage++; }
         };
 
 
