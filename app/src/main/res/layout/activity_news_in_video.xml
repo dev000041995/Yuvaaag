@@ -154,6 +154,7 @@
                     android:textSize="@dimen/_10sdp"
                     android:hint="Enter Email"
                     android:layout_marginTop="@dimen/_10sdp"
+                    
                     android:background="@drawable/et_rect_background_border_new"/>
                 <EditText
                     android:layout_width="0sp"
