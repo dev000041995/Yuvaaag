@@ -34,7 +34,6 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
         View view = inflater.inflate(
                 R.layout.home_fragment, container, false);
         newsOneRel=(RelativeLayout)view.findViewById(R.id.newsOneRel);
@@ -47,7 +46,6 @@ public class HomeFragment extends Fragment {
         });
         viewpagerStory=view.findViewById(R.id.viewpagerStory);
         viewpagerStory.setAdapter(new ViewPagerAdapter(getActivity()));
-
         return view;
 
 
