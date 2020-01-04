@@ -42,7 +42,7 @@ public class SplashActivity extends AppCompatActivity {
 //                if(pref.get(AppSettings.CustomerID).equalsIgnoreCase(""))
 //                    startActivity(new Intent(getApplicationContext(), LoginActivity.class));
 //                else
-                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                startActivity(new Intent(getApplicationContext(), DashboardActivity.class));
             }
         },3000);
     }

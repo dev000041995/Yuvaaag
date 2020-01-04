@@ -5,9 +5,10 @@ android {
     buildToolsVersion "29.0.2"
     defaultConfig {
         applicationId "project.com.yuvaaag"
-        minSdkVersion 15
+        minSdkVersion 21
         targetSdkVersion 29
         versionCode 1
+        vectorDrawables.useSupportLibrary = true
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -26,4 +27,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation 'com.intuit.sdp:sdp-android:1.0.4'
+    implementation 'com.android.support:recyclerview-v7:+'
+    implementation 'com.android.support:design:29.0.1'
 }

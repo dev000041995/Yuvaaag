@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorPrimary">#EC382F</color>
+    <color name="colorPrimaryDark">#EC382F</color>
+    <color name="colorAccent">#D92219</color>
     <color name="appColorAccent">#F16F48</color>
     <color name="white">#fff</color>
+    <color name="black">#000</color>
+    <color name="grey_light">#ddd</color>
+    <color name="pink">#F34168</color>
+    <color name="grey">#ddd</color>
+    <color name="colortheme">#D92219</color>
+    <color name="dark_grey">#5F5D5D</color>
+    <color name="purple">#651FFF</color>
 </resources>
+
+<!--
+<color name="colortheme">#AD162E</color>-->

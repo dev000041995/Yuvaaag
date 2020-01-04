@@ -3,98 +3,41 @@ package project.com.yuvaaag;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.view.View;
-import android.view.Window;
-import android.webkit.JsResult;
-import android.webkit.WebChromeClient;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
+import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.Spinner;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    private WebView webView;
-    private ProgressBar progressBar;
-    private String url="http://yuvaaag.com/";
+    private ImageView menu_drawer;
+    private Spinner category_spin;
+    private ArrayList<String> dataArray_city;
+    private ProgressBar progress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().requestFeature(Window.FEATURE_PROGRESS);
         setContentView(R.layout.activity_main);
-//        WebView view = (WebView) findViewById(R.id.web);
-//        view.setWebViewClient(new WebViewClient() {
-//            @Override
-//            public boolean shouldOverrideUrlLoading(WebView view, String url) {
-//                view.loadUrl(url);
-//                return false;
-//            }
-//        });
-//
-//        view.getSettings().setDomStorageEnabled(true);
-//        view.getSettings().setJavaScriptEnabled(true);
-//        view.getSettings().setAppCacheEnabled(true);
-//        view.loadUrl("http://yuvaaag.com/");
-//        view.setWebChromeClient(new WebChromeClient() {
-//            @Override
-//            public boolean onJsAlert(WebView view, String url, String message, JsResult result) {
-//                return super.onJsAlert(view, url, message, result);
-//            }
-//            public void onProgressChanged(WebView view, int progress)
-//            {
-//                //Make the bar disappear after URL is loaded, and changes string to Loading...
-//                setTitle("Loading...");
-//                setProgress(progress * 100); //Make the bar disappear after URL is loaded
-//
-//                // Return the app name after finish loading
-//                if(progress == 100)
-//                    setTitle(R.string.app_name);
-//            }
-//
-//        });
-        webView = (WebView) findViewById(R.id.web);
-        webView.getSettings().setJavaScriptEnabled(true);
-        webView.getSettings().setSupportZoom(true);
-        webView.getSettings().setBuiltInZoomControls(true);
-        webView.loadUrl(url);
-
-        progressBar = (ProgressBar) findViewById(R.id.progress);
-        progressBar.setMax(100);
-        progressBar.setProgress(1);
-
-        webView.setWebChromeClient(new WebChromeClient() {
-            public void onProgressChanged(WebView view, int progress) {
-                progressBar.setProgress(progress);
-            }
-        });
-        webView.setWebViewClient(new WebViewClient() {
-
-            @Override
-            public void onPageStarted(WebView view, String url, Bitmap favicon) {
-                super.onPageStarted(view, url, favicon);
-                progressBar.setVisibility(View.VISIBLE);
-            }
-            @Override
-            public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                view.loadUrl(url);
-                return true;
-            }
-
-            @Override
-            public void onPageFinished(WebView view, String url) {
-
-                progressBar.setVisibility(View.GONE);
-            }
-        });
+        get_findViewById();
+        dataArray_city=new ArrayList<>();
+        dataArray_city.add("Select Category");
+//            A_Service_URL.getToast(getApplicationContext(),"No Internet Connection");
+        ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(MainActivity.this,
+                android.R.layout.simple_spinner_item, dataArray_city);//setting the country_array to spinner
+        adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        category_spin.setAdapter(adapter1);
     }
 
-//    private class MyWebViewClient extends WebViewClient {
-//        @Override
-//        public boolean shouldOverrideUrlLoading(WebView webView, String url) {
-//            return false;
-//        }
-//    }
+    private void get_findViewById() {
+        menu_drawer=(ImageView)findViewById(R.id.menu);
+        category_spin=(Spinner)findViewById(R.id.category_spin);
+        progress=(ProgressBar)findViewById(R.id.progress);
+        dataArray_city=new ArrayList<>();
+        DrawerClass drawerClass = new DrawerClass();
+        drawerClass.getHeaderFunction(this.findViewById(android.R.id.content), MainActivity.this, "Dashboard");
+    }
 }
