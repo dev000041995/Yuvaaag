@@ -25,7 +25,7 @@ import project.com.yuvaaag.fragment.HomeFragment;
 import project.com.yuvaaag.utils.AppSettings;
 import project.com.yuvaaag.utils.Preferences;
 
-public class DrawerClass implements View.OnClickListener{
+public class DrawerClass {
     private DrawerLayout drawer;
     private ImageView menu_;
     private TextView textheader;
@@ -48,41 +48,37 @@ public class DrawerClass implements View.OnClickListener{
             @Override
             public void onClick(View view) {
                 drawer.openDrawer(Gravity.START);
-                homeLL = (LinearLayout) drawer.findViewById(R.id.homeLL);
-                catLL = (LinearLayout) drawer.findViewById(R.id.catLL);
-                newsLL = (LinearLayout) drawer.findViewById(R.id.newsLL);
-                worldLL = (LinearLayout) drawer.findViewById(R.id.worldLL);
 
-
-
-
-
-                worldLL.setOnClickListener(this);
             }
         });
     }
 
     private void getviewbyid(View v, final Context context, String activityName) {
-        menu_=(ImageView)v.findViewById(R.id.menu);
-        drawer=(DrawerLayout)v.findViewById(R.id.drawer);
-        textheader=(TextView)v.findViewById(R.id.textheading);
-        logout_img=(ImageView)v.findViewById(R.id.logout);
-        user_img=(ImageView)v.findViewById(R.id.user);
-        progress=(ProgressBar)v.findViewById(R.id.progress);
-        preferences=new Preferences(context);
-        if(preferences.get(AppSettings.CustomerID)!=null && !preferences.get(AppSettings.CustomerID).equalsIgnoreCase("")){
-            logout_img.setVisibility(View.VISIBLE);
-            user_img.setVisibility(View.GONE);
-        }
-        else {
-            logout_img.setVisibility(View.GONE);
-            user_img.setVisibility(View.VISIBLE);
-        }
-        if(context instanceof LoginActivity || context instanceof SignUpActivity ||context instanceof Forgetpassword){
-            logout_img.setVisibility(View.GONE);
-            user_img.setVisibility(View.GONE);
-        }
+        menu_        =(ImageView)v.findViewById(R.id.menu);
+        drawer       =(DrawerLayout)v.findViewById(R.id.drawer);
+        textheader   =(TextView)v.findViewById(R.id.textheading);
+        logout_img   =(ImageView)v.findViewById(R.id.logout);
+        user_img     =(ImageView)v.findViewById(R.id.user);
+        progress     =(ProgressBar)v.findViewById(R.id.progress);
+
+
+        homeLL = (LinearLayout) drawer.findViewById(R.id.homeLL);
+        catLL = (LinearLayout) drawer.findViewById(R.id.catLL);
+        newsLL = (LinearLayout) drawer.findViewById(R.id.newsLL);
+        worldLL = (LinearLayout) drawer.findViewById(R.id.worldLL);
+
+
+
+
+
+        preferences  = new Preferences(context);
+
+
+
+
         textheader.setText(activityName);
+
+
         logout_img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -111,13 +107,20 @@ public class DrawerClass implements View.OnClickListener{
         });
     }
 
-    @Override
+   /* @Override
     public void onClick(View view) {
         switch (view.getId())
         {
             case R.id.worldLL:
-                HomeFragment.newInstance(0, "Top News");
+              *//*  try {
+                    Class myFragmentClass = Class.forName("Home");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                Fragment myFragment = (Fragment)  HomeFragment.newInstance(0, "Top News");
+                myFragmentClass.add(myFragment);*//*
+
                 break;
         }
-    }
+    }*/
 }

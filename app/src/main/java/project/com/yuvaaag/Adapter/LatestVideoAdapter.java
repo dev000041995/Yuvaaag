@@ -42,6 +42,7 @@ public class LatestVideoAdapter extends RecyclerView.Adapter<LatestVideoAdapter.
 
         }
     }
+
     public LatestVideoAdapter(Context mContext) {
         this.mContext = mContext;
 
